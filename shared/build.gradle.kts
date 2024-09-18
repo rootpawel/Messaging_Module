@@ -3,6 +3,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    id("maven-publish")
 }
 
 kotlin {
@@ -64,4 +65,16 @@ dependencies {
     implementation(libs.androidx.runtime.android)
     implementation(libs.androidx.ui.android)
     implementation(libs.androidx.foundation.layout.android)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "de.neofonie.messagingmodulekmp"
+                artifactId = "messagingmodule-kmp"
+                version = "1.0.0"
+            }
+        }
+    }
 }
