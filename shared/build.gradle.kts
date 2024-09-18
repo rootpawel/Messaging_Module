@@ -5,6 +5,9 @@ plugins {
     alias(libs.plugins.androidLibrary)
     id("maven-publish")
 }
+//
+//lateinit var sourcesArtifact: PublishArtifact
+//lateinit var javadocArtifact: PublishArtifact
 
 kotlin {
     androidTarget {
@@ -70,12 +73,21 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("maven") {
+//            create<MavenPublication>("release") {
+//                groupId = "de.neofonie.messagingmodulekmp"
+//                artifactId = "messagingmodule-kmp"
+//                version = "1.0.0"
+//
+//                from(components["release"])
+//            }
+
+            create<MavenPublication>("release") {
+                from(components.findByName("release"))
+                //artifact(sourcesArtifact)
+                //artifact(javadocArtifact)
                 groupId = "de.neofonie.messagingmodulekmp"
                 artifactId = "messagingmodule-kmp"
                 version = "1.0.0"
-
-                from(components["java"])
             }
         }
     }
