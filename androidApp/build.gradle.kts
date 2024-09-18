@@ -26,6 +26,9 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+        getByName("debug"){
+            matchingFallbacks.add("release")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
