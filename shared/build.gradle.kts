@@ -70,10 +70,12 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("release") {
+            create<MavenPublication>("maven") {
                 groupId = "de.neofonie.messagingmodulekmp"
                 artifactId = "messagingmodule-kmp"
                 version = "1.0.0"
+
+                from(components["java"])
             }
         }
     }
