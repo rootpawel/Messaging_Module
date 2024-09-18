@@ -5,9 +5,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     id("maven-publish")
 }
-//
-//lateinit var sourcesArtifact: PublishArtifact
-//lateinit var javadocArtifact: PublishArtifact
 
 kotlin {
     androidTarget {
