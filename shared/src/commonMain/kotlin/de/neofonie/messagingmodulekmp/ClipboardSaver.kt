@@ -1,6 +1,8 @@
 package de.neofonie.messagingmodulekmp
 
-expect class ClipboardSaver {
-    fun saveToClipboard(text: String)
+class ClipboardSaver {
     fun getText():String
+    {
+        return "qwerty"
+    }
 }
