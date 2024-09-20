@@ -69,15 +69,59 @@ dependencies {
     implementation(libs.androidx.foundation.layout.android)
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components.findByName("release"))
-                groupId = "de.neofonie.messagingmodulekmp"
-                artifactId = "messagingmodule-kmp"
-                version = "1.0.0"
-            }
-        }
-    }
-}
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            groupId = 'com.github.geek-atif'
+//            artifactId = 'com-atifqamar-customtoast'
+//            version = "1.0"
+//            pom {
+//                description = 'First release'
+//            }
+//        }
+//    }
+//    repositories {
+//        mavenLocal()
+//    }
+//}
+
+//publishing{
+//    publications{
+//        register<MavenPublication>("release"){
+//            groupId = "com.jhj0517"
+//            artifactId = "koreanchoseongsearch"
+//            version = "1.0.0"
+//
+//            afterEvaluate {
+//                from(components["release"])
+//            }
+//        }
+//    }
+//
+//    repositories {
+//        maven {
+//            name = "ChoseongSearch"
+//            url = uri("https://maven.pkg.github.com/OWNER/REPO_NAME")
+//            credentials{
+//                username = githubProperties.getProperty("gpr.usr") ?: System.getenv("GITHUB_USERNAME")
+//                password = githubProperties.getProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+//            }
+//        }
+//    }
+//}
+
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            create<MavenPublication>("release") {
+//                from(components.findByName("release"))
+//                groupId = "com.github.rootpawel"
+//                artifactId = "de.neofonie.messagingmodulekmp"
+//                version = "1.0.0"
+//                pom {
+//                    description = 'First release'
+//                }
+//            }
+//        }
+//    }
+//}
