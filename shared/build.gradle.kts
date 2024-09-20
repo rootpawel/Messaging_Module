@@ -69,21 +69,17 @@ dependencies {
     implementation(libs.androidx.foundation.layout.android)
 }
 
-//publishing {
-//    publications {
-//        maven(MavenPublication) {
-//            groupId = 'com.github.geek-atif'
-//            artifactId = 'com-atifqamar-customtoast'
-//            version = "1.0"
-//            pom {
-//                description = 'First release'
-//            }
-//        }
-//    }
-//    repositories {
-//        mavenLocal()
-//    }
-//}
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "de.neofonie"
+            artifactId = "messagingmodulekmp"
+            version = "1.0.11"
+
+            from(components["java"])
+        }
+    }
+}
 
 //publishing{
 //    publications{
