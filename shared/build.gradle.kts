@@ -34,7 +34,6 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
-            implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
         }
 
@@ -58,6 +57,14 @@ android {
     defaultConfig {
         minSdk = 27
     }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/versions/**"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -72,39 +79,13 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            groupId = "de.neofonie"
-            artifactId = "messagingmodulekmp"
-            version = "1.0.12"
-
-            from(components["release"])
+            from(components.findByName("release"))
+            groupId = "com.github.rootpawel"
+            artifactId = "de.neofonie.messagingmodulekmp"
+            version = "1.0.13"
         }
     }
 }
-
-//publishing{
-//    publications{
-//        register<MavenPublication>("release"){
-//            groupId = "com.jhj0517"
-//            artifactId = "koreanchoseongsearch"
-//            version = "1.0.0"
-//
-//            afterEvaluate {
-//                from(components["release"])
-//            }
-//        }
-//    }
-//
-//    repositories {
-//        maven {
-//            name = "ChoseongSearch"
-//            url = uri("https://maven.pkg.github.com/OWNER/REPO_NAME")
-//            credentials{
-//                username = githubProperties.getProperty("gpr.usr") ?: System.getenv("GITHUB_USERNAME")
-//                password = githubProperties.getProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
-//            }
-//        }
-//    }
-//}
 
 //afterEvaluate {
 //    publishing {
@@ -114,9 +95,6 @@ publishing {
 //                groupId = "com.github.rootpawel"
 //                artifactId = "de.neofonie.messagingmodulekmp"
 //                version = "1.0.0"
-//                pom {
-//                    description = 'First release'
-//                }
 //            }
 //        }
 //    }
