@@ -71,12 +71,12 @@ dependencies {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("release") {
             groupId = "de.neofonie"
             artifactId = "messagingmodulekmp"
-            version = "1.0.11"
+            version = "1.0.12"
 
-            from(components["java"])
+            from(components["release"])
         }
     }
 }
