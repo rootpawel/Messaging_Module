@@ -13,8 +13,8 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
-        //publishLibraryVariants("release", "debug")
-        publishAllLibraryVariants()
+        publishLibraryVariants("release")
+        //publishAllLibraryVariants()
     }
     
     listOf(
@@ -74,8 +74,6 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 from(components.findByName("release"))
-                //artifact(sourcesArtifact)
-                //artifact(javadocArtifact)
                 groupId = "de.neofonie.messagingmodulekmp"
                 artifactId = "messagingmodule-kmp"
                 version = "1.0.0"
